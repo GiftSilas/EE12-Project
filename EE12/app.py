@@ -26,6 +26,29 @@ def loadorangemodel():
 validationnetwork = loadvalidationnetwork()
 orangemodel = loadorangemodel()
 
+def estimateelongation(image, threshold=235):
+    """
+    Segments the foreground object against a plain/light background and
+    measures how elongated it is (via PCA on foreground pixel coordinates).
+    Oranges are roughly circular in outline (elongation close to 1.0).
+    Eggs are noticeably elongated and asymmetric (elongation clearly > 1.0).
+    Returns None if the object can't be reliably segmented (e.g. busy background).
+    """
+    gray = np.array(image.convert("L"), dtype=np.float32)
+    mask = gray < threshold
+    ys, xs = np.nonzero(mask)
+    if len(xs) < 200:
+        return None
+
+    coords = np.stack([xs, ys], axis=1).astype(np.float64)
+    coords -= coords.mean(axis=0)
+    cov = np.cov(coords, rowvar=False)
+    eigvals = np.sort(np.linalg.eigvalsh(cov))[::-1]
+    if eigvals[1] <= 0:
+        return None
+    return float(np.sqrt(eigvals[0] / eigvals[1]))
+
+
 st.title("Orange Freshness Detection")
 st.write("Upload a photo of an orange to check if it's fresh or rotten")
 
@@ -45,13 +68,26 @@ if uploadedfile is not None:
     validationresult = validationnetwork.predict(preppedarray, verbose=0)
     decodedpredictions = decodepredictions(validationresult, top=10)[0]
 
-    validtags = ["orange", "fruit", "lemon", "citrus"]
+    validtags = ["orange", "lemon"]
+    minconfidence = 0.15
+    topn = 3
+
     isvalidorange = any(
-        any(tag in label.lower() for tag in validtags) and confidence > 0.01
-        for (code, label, confidence) in decodedpredictions
+        any(tag in label.lower() for tag in validtags) and confidence > minconfidence
+        for (code, label, confidence) in decodedpredictions[:topn]
     )
 
-    if not isvalidorange:
+    elongationthreshold = 1.2
+    elongation = estimateelongation(image)
+    iseggshaped = elongation is not None and elongation > elongationthreshold
+
+    if iseggshaped:
+        st.error(
+            f"This looks too elongated/asymmetric to be an orange "
+            f"(shape score: {elongation:.2f}, expected close to 1.0 for a round orange). "
+            "Please upload a photo of an orange."
+        )
+    elif not isvalidorange:
         st.error("This doesn't look like an orange. Please upload a clearer photo of an orange.")
     else:
         resized = image.resize((imgsize, imgsize))
