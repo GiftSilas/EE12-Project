@@ -1,469 +1,183 @@
+<h1>EE12 Project: Orange Freshness Detection</h1>
 
-# Orange Freshness Detection
+<p><em>A Streamlit web app that uses a TensorFlow model to check if an orange is fresh or rotten</em></p>
 
-## Project Overview
+<p><em>Engineering Project, EE12</em></p>
 
-Orange Freshness Detection is a Streamlit-based web application that uses deep learning to determine whether an orange is **fresh** or **rotten** from an uploaded image. The system combines image classification and shape validation techniques to improve prediction accuracy and reduce incorrect classifications. The application provides users with a simple interface for uploading images and receiving freshness predictions with confidence scores. 0
+<hr>
 
-## Features
+<h2>What It Does</h2>
+<p>
+Upload a photo of an orange. Before running the freshness check, the app validates that the image
+actually shows a round citrus fruit: it uses a pretrained MobileNetV2 model to confirm the object looks
+like an orange or lemon, then applies Principal Component Analysis (PCA) on the image's foreground
+pixels to reject elongated objects (like eggs) that might otherwise slip past the first check. Once an
+image passes both filters, a dedicated model (<code>orange_model.keras</code>) predicts whether the
+orange is fresh or rotten, along with a confidence percentage. Predictions that fall in an uncertain
+range (roughly 40%–60% confidence) are flagged with a warning instead of a firm result.
+</p>
 
-- Upload images of oranges for freshness analysis.
-- Two-step image validation to ensure correct object detection.
-- MobileNetV2-based image classification.
-- PCA shape analysis to filter out invalid objects.
-- Displays prediction results with confidence scores.
-- User-friendly Streamlit web interface.
+<h3>Classes</h3>
+<ul>
+  <li>Fresh</li>
+  <li>Rotten</li>
+  <li>Uncertain Prediction (low-confidence flag)</li>
+  <li>Invalid Image (fails the orange/shape validation)</li>
+</ul>
 
-## Technologies Used
+<h3>Built With</h3>
+<ul>
+  <li>Python</li>
+  <li>TensorFlow / Keras (MobileNetV2 + custom classifier)</li>
+  <li>Streamlit</li>
+  <li>NumPy and Pillow</li>
+  <li>Scikit-learn (PCA for shape/elongation analysis)</li>
+</ul>
 
-- Python
-- Streamlit
-- TensorFlow / Keras
-- NumPy
-- Pillow (PIL)
+<hr>
 
-## Project Structure
+<h2>How To Set It Up</h2>
 
-- `app.py` – Main Streamlit application.
-- `orange_model.keras` – Trained deep learning model.
-- `requirements.txt` – Project dependencies.
-- `README.md` – Project documentation.
-
-## How to Run
-
-1. Clone the repository.
-2. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Start the application:
-   ```bash
-   streamlit run app.py
-   ```
-4. Open the local URL provided by Streamlit in your browser and upload an image for prediction.
-
-## Author
-
-**Registration Number:** 23/EG/EE/075
-=======
-
-## Project Summary
-
-### System Purpose
-
-The Citrus Quality Evaluation tool is an interactive web platform built with Streamlit that analyzes uploaded images to identify whether oranges are sound or spoiled.
-
-### Primary Features
-
-* **Dual-Stage Image Filtering:**
-* Employs MobileNetV2 pretrained weights to verify that input images depict citrus fruits rather than unrelated items.
-* Applies Principal Component Analysis (PCA) to evaluate spatial geometry and filter out oblong items such as eggs based on aspect ratios.
-
-
-* **Condition Assessment:** Features a dedicated neural network (`orange_model.keras`) to judge fruit viability and output corresponding probability metrics.
-
-### Framework & Dependencies
-
-Developed using Python, Streamlit, TensorFlow, Keras, NumPy, and PIL.
-
-**ID:** 23/EG/EE/035
-
-
-## Project Summary
-
-### System Purpose
-The Citrus Quality Evaluation tool is an interactive web platform built with Streamlit that analyzes uploaded images to identify whether oranges are sound or spoiled.
-
-### Primary Features
-* **Dual-Stage Image Filtering:**
-* Employs MobileNetV2 pretrained weights to verify that input images depict citrus fruits rather than unrelated items.
-* Applies Principal Component Analysis (PCA) to evaluate spatial geometry and filter out oblong items such as eggs based on aspect ratios.
-
-* **Condition Assessment:** Features a dedicated neural network (`orange_model.keras`) to judge fruit viability and output corresponding probability metrics.
-
-### Framework & Dependencies
-Developed using Python, Streamlit, TensorFlow, Keras, NumPy and PIL.
-
-**ID:** 23/EG/EE/115
-=======
-
-A mini project in fulfilment of GET 324
-# EE12-Project
-
-An image classification project developed in fulfilment of GET 324. The application detects whether an orange is fresh or rotten from an uploaded image using a trained TensorFlow/Keras model and a Streamlit web interface.
-
----
-
-## Overview
-
-EE12-Project is a machine learning application that allows users to upload an image of an orange and receive a freshness prediction. Before classification, the system validates that the uploaded image is likely to contain an orange by using MobileNetV2 image recognition and a simple shape analysis algorithm.
-
-If the uploaded image is not recognised as an orange or appears elongated (such as an egg-shaped object), the application prompts the user to upload a valid image.
-
----
-
-## Features
-
-- Fresh vs Rotten orange classification.
-- Image upload through a Streamlit web interface.
-- Image validation using MobileNetV2 (ImageNet pretrained model).
-- Shape analysis to reject non-orange objects.
-- Confidence score displayed with predictions.
-- Warning messages for uncertain predictions.
-- Cached model loading for improved performance.
-- Includes a Jupyter notebook for model training.
-
----
-
-## Technologies Used
-
-- Python
-- Streamlit
-- TensorFlow
-- Keras
-- NumPy
-- Pillow (PIL)
-- Scikit-learn
-- MobileNetV2 (pre-trained TensorFlow model)
-- Jupyter Notebook
-
----
-
-## Project Structure
-
-```text
-EE12-Project/
-│
-├── EE12/
-│   ├── app.py                 # Streamlit application
-│   ├── orange_model.keras     # Trained classification model
-│   ├── requirements.txt       # Project dependencies
-│   ├── train_model.ipynb      # Model training notebook
-│   └── dataset/               # Dataset used for training
-│
-└── README.md
-```
-
----
-
-## Installation
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/GiftSilas/EE12-Project.git
-```
-
-### 2. Navigate to the Project Folder
-
-```bash
+<h3>1. Clone the repo</h3>
+<pre>
+git clone https://github.com/&lt;repo-owner&gt;/EE12-Project.git
 cd EE12-Project/EE12
-```
+</pre>
+<p>
+<em>Note: the original source documents disagree on the actual repo owner/URL (different versions
+reference different GitHub usernames). Confirm the correct link before sharing this README.</em>
+</p>
 
-### 3. Create a Virtual Environment (Optional)
+<h3>2. Install dependencies</h3>
+<pre>
+pip install -r requirements.txt
+</pre>
 
-Windows:
-
-```bash
+<h3>3. (Optional) Set up a virtual environment</h3>
+<p>Windows:</p>
+<pre>
 python -m venv venv
 venv\Scripts\activate
-```
-
-macOS/Linux:
-
-```bash
+</pre>
+<p>macOS/Linux:</p>
+<pre>
 python -m venv venv
 source venv/bin/activate
-```
+</pre>
 
-### 4. Install Dependencies
+<h3>4. Train the model (if you want to retrain)</h3>
+<p>
+Open <code>train_model.ipynb</code> and run the cells in order. It saves the trained model as
+<code>orange_model.keras</code>
+</p>
 
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## How to Run the Project
-
-Run the Streamlit application using:
-
-```bash
+<h3>5. Run the app</h3>
+<pre>
 streamlit run app.py
-```
+</pre>
+<p>
+It opens the local link shown in your terminal (<code>http://localhost:8501</code>) in your browser,
+upload an orange photo (.jpg, .jpeg, or .png) and view the freshness prediction
+</p>
+
+<hr>
+
+<h2>Known Limitations</h2>
+<ul>
+  <li>Works best on clear, well-lit photos with the orange visible against a plain or uncluttered background</li>
+  <li>The two-step validation (MobileNetV2 + PCA elongation check) reduces but does not eliminate false positives on non-orange or unusually shaped objects</li>
+  <li>Accuracy depends heavily on how similar an uploaded photo is to the training data</li>
+  <li>Predictions near the 40%–60% confidence range are inherently uncertain and flagged as such rather than given a firm answer</li>
+</ul>
+
+<hr>
+
+<h2>Contributors</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Reg Number</th>
+      <th>Github Username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>—</td>
+      <td>23/EG/EE/075</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>—</td>
+      <td>23/EG/EE/035</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>—</td>
+      <td>23/EG/EE/115</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>—</td>
+      <td>23/EG/EE/015</td>
+      <td>oliver-creator1</td>
+    </tr>
+    <tr>
+      <td>Mfon, Godswill</td>
+      <td>23/EG/EE/045</td>
+      <td>mfongodswill68-cmd</td>
+    </tr>
+    <tr>
+      <td>—</td>
+      <td>23/EG/EE/065</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+<em>Note: several entries had a registration number but no name or GitHub username in the original
+document — fill these in if you have the full contributor list.</em>
+</p>
+
+<hr>
+
+<h2>Contributors' Comments</h2>
+
+<h3>23/EG/EE/035 &amp; 23/EG/EE/115</h3>
+<p>
+The Citrus Quality Evaluation tool checks whether an uploaded orange is sound or spoiled, using
+MobileNetV2 to confirm the image shows a citrus fruit and PCA-based shape analysis to filter out
+oblong objects like eggs, before a dedicated network judges the fruit's condition
+</p>
+
+<h3>oliver-creator1</h3>
+<p>
+This project lets a user upload an orange photo and get a freshness read, after checking the image
+actually looks like an orange and isn't an oddly shaped object. It's a class project with room to grow —
+more diverse training data, better background handling, and cloud deployment are all listed as future
+improvements rather than finished features
+</p>
+
+<h3>Mfon, Godswill</h3>
+<p>
+This mini project was built to demonstrate the practical application of concepts from GET 324, with a
+focus on structured project planning, implementation, and documentation as much as the technical result
+itself
+</p>
+
+<h3>23/EG/EE/065</h3>
+<p>
+The project classifies oranges as fresh or rotten and uses MobileNetV2 pre-validation together with a
+PCA-based elongation check to cut down on false positives from non-orange or non-round objects
+</p>
+
+<h3>23/EG/EE/075</h3>
+<p>
+No individual comment was provided for this entry in the original document.
+</p>
 
-After running the command, Streamlit will provide a local URL (typically):
+<hr>
 
-```text
-http://localhost:8501
-```
-
-Open the URL in your browser to use the application.
-
----
-
-## Usage Instructions
-
-1. Launch the application.
-2. Upload an image file (.jpg, .jpeg, or .png).
-3. The application will:
-
-   - Validate that the image resembles an orange.
-   - Check whether the object's shape is suitable.
-   - Process the image through the trained model.
-
-4. The application will display one of the following results:
-
-   - Fresh Orange
-   - Rotten Orange
-   - Uncertain Prediction
-   - Invalid image (not an orange or unsuitable image)
-
-For best results:
-
-- Use clear images.
-- Ensure the orange is visible and well-lit.
-- Use a plain or uncluttered background whenever possible.
-
----
-
-## Screenshots
-
-Add screenshots of the application interface here.
-
-### Home Page
-
-```
-[Insert screenshot here]
-```
-
-### Fresh Orange Prediction
-
-```
-[Insert screenshot here]
-```
-
-### Rotten Orange Prediction
-
-```
-[Insert screenshot here]
-```
-
-### Invalid Image Warning
-
-```
-[Insert screenshot here]
-```
-
----
-
-## Future Improvements
-
-Potential enhancements include:
-
-- Support for additional fruit freshness detection.
-- Improved dataset diversity for better accuracy.
-- Model performance evaluation metrics.
-- Deployment to cloud platforms such as Streamlit Community Cloud.
-- Batch image prediction.
-- Improved object segmentation for complex backgrounds.
-- User interface enhancements.
-
----
-
-## Contributing
-
-Contributions are welcome.
-
-To contribute:
-
-1. Fork the repository.
-2. Create a new branch.
-
-```bash
-git checkout -b feature-name
-```
-
-3. Make your changes.
-4. Commit your work.
-
-```bash
-git commit -m "Add new feature"
-```
-
-5. Push your changes.
-
-```bash
-git push origin feature-name
-```
-
-6. Open a Pull Request.
-
----
-
-## License
-
-No license file is currently included in this repository.
-
-If you intend to make this project open source, consider adding an appropriate license such as:
-
-- MIT License
-- Apache License 2.0
-- GPL v3
-
----
-
-## Author
-
-Developed as part of a GET 324 mini project.
-
-Repository Owner:
-
-- oliver-creator1
-
-GitHub Repository:
-
-- https://github.com/oliver-creator1/EE12-Project
-
----
-
-## Acknowledgements
-
-This project makes use of:
-
-- TensorFlow and Keras for machine learning.
-- Streamlit for building the web interface.
-- MobileNetV2 pretrained on ImageNet for image validation.
-- Open-source Python libraries including NumPy and Pillow.
-
----
-
-## 23/EG/EE/015
-=======
-
-# EE12-Project
-A mini project in fulfilment of GET 324
-
-EE12 Project
-
-Overview
-
-EE12 Project is a mini project developed in fulfilment of the requirements for GET 324. The project is designed to demonstrate the practical application of knowledge and skills acquired during the course through the development of a structured and functional solution.
-
-The project focuses on applying relevant technical concepts to solve a practical problem while demonstrating proper project planning, implementation, documentation, and presentation.
-
-Objectives
-
-The main objectives of this project are to:
-
-- Apply the knowledge and concepts acquired in GET 324.
-- Develop a practical solution to a real-world problem.
-- Demonstrate technical and problem-solving skills.
-- Gain practical experience in project development.
-- Document and present the development process effectively.
-
-Features
-
-- Practical implementation of the project requirements.
-- Structured and organized project files.
-- Application of relevant technical concepts.
-- Designed for academic and educational purposes.
-
-Technologies Used
-
-The project was developed using the appropriate tools and technologies required for its implementation.
-
-Project Structure
-
-EE12-Project/
-│
-├── README.md
-└── EE12/
-    └── Project files
-
-Installation
-
-To get a local copy of the project:
-
-git clone https://github.com/mfongodswill68-cmd/EE12-Project.git
-
-Navigate into the project directory:
-
-cd EE12-Project
-
-Usage
-
-Open the project files using the appropriate development environment and follow the project-specific instructions to run or interact with the application.
-
-Purpose
-
-This project is developed primarily for academic purposes as part of the requirements for GET 324. It demonstrates the ability to apply theoretical knowledge to practical project development.
-
-Author
-
-Godswill Mfon
-
-Acknowledgements
-
-- Department/Course requirements for GET 324
-- Course instructors and project supervisors
-- Resources and tools used during the development of the project
-
-License
-
-This project is intended for educational and academic purposes.
-
-23/EG/EE/045
-=======
-# Orange Freshness Detection Web App
-
-A Computer Vision and Deep Learning web application built to classify oranges as **Fresh** or **Rotten**, complete with pre-validation filters to ensure uploaded images are actual oranges. Developed as a mini project in fulfillment of **GET 324**.
-
----
-
-## 📌 Overview
-
-This project uses a custom Keras Deep Learning model alongside MobileNetV2 pre-validation to assess orange quality. The application provides an interactive web interface built with **Streamlit** where users can upload image files (JPG, JPEG, PNG) and receive real-time freshness predictions with confidence scores.
-
-To minimize false positive predictions on non-orange inputs or non-spherical objects (such as eggs), the app integrates image classification pre-validation and Principal Component Analysis (PCA) based elongation detection.
-=======
-# EE12 Project
-
-> A comprehensive project repository for the EE12 coursework.
-
----
-
-## 📖 Overview
-
-The **EE12 Project** is designed to demonstrate key engineering principles, programming practices, and computational implementations. This repository contains the source code, configurations, and documentation needed to build and execute the project.
-
----
-
-## ✨ Features
-
-
-* **Fresh vs. Rotten Classification:** Classifies valid orange images into **Fresh** or **Rotten** status.
-* **Pre-Validation Filter:** Uses standard MobileNetV2 ImageNet weights to verify whether the uploaded image contains an orange or lemon before passing it to the custom classifier.
-* **Geometric Shape Check (PCA Elongation):** Converts the image to grayscale and uses Principal Component Analysis on foreground pixel coordinates to measure elongation, rejecting asymmetric or elongated objects (such as eggs).
-* **Confidence & Uncertainty Handling:** Provides visual alerts (success, error, or warning) depending on classification probabilities and flags ambiguous predictions (confidence between $40\%$ and $60\%$).
-* **Interactive UI:** A lightweight Streamlit web application supporting standard image uploads (`.jpg`, `.jpeg`, `.png`).
-=======
-* **Structured Design:** Clean code layout for readability and maintainability.
-* **Engineering Logic:** Implementation of targeted project tasks and algorithms.
-* **Version Control Ready:** Fully tracked using Git.
-
----
-
-## 🛠️ Technologies Used
-* **Language:** Python 3.x
-* **Web Framework:** Streamlit
-* **Deep Learning:** TensorFlow / Keras (MobileNetV2 & Custom `.keras` model)
-* **Numerical & Data Processing:** NumPy
-* **Ima
-
-## 🪪 Registration / Student Identifier
-
-**Registration Number:** ## 👨‍🎓 Author
-
-**Registration Number:** 23/EG/EE/065
-
+<h2>License</h2>
+<p>Academic project for the GET 324 Engineering course</p>
