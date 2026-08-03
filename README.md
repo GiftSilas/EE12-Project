@@ -139,7 +139,7 @@ upload an orange photo (.jpg, .jpeg, or .png) and view the freshness prediction
 
 <h2>Contributors' Comments</h2>
 
-<h3>23/EG/EE/035</h3>
+<h3>Gift Silas</h3>
 <p>
 The Citrus Quality Evaluation tool verifies uploaded oranges using MobileNetV2 for fruit identification
 and PCA-based shape analysis to screen out oblong objects, before a specialized network assesses
