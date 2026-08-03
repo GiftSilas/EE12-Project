@@ -135,11 +135,6 @@ upload an orange photo (.jpg, .jpeg, or .png) and view the freshness prediction
     </tr>
   </tbody>
 </table>
-<p>
-<em>Note: several entries had a registration number but no name or GitHub username in the original
-document — fill these in if you have the full contributor list.</em>
-</p>
-
 <hr>
 
 <h2>Contributors' Comments</h2>
