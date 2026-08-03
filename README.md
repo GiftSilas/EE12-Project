@@ -109,9 +109,9 @@ upload an orange photo (.jpg, .jpeg, or .png) and view the freshness prediction
       <td>—</td>
     </tr>
     <tr>
-      <td>—</td>
+      <td>Silas, Gift Aniekan</td>
       <td>23/EG/EE/035</td>
-      <td>—</td>
+      <td>GiftAnisilas</td>
     </tr>
     <tr>
       <td>—</td>
