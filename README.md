@@ -255,6 +255,78 @@ This project makes use of:
 
 # EE12-Project
 A mini project in fulfilment of GET 324
+
+EE12 Project
+
+Overview
+
+EE12 Project is a mini project developed in fulfilment of the requirements for GET 324. The project is designed to demonstrate the practical application of knowledge and skills acquired during the course through the development of a structured and functional solution.
+
+The project focuses on applying relevant technical concepts to solve a practical problem while demonstrating proper project planning, implementation, documentation, and presentation.
+
+Objectives
+
+The main objectives of this project are to:
+
+- Apply the knowledge and concepts acquired in GET 324.
+- Develop a practical solution to a real-world problem.
+- Demonstrate technical and problem-solving skills.
+- Gain practical experience in project development.
+- Document and present the development process effectively.
+
+Features
+
+- Practical implementation of the project requirements.
+- Structured and organized project files.
+- Application of relevant technical concepts.
+- Designed for academic and educational purposes.
+
+Technologies Used
+
+The project was developed using the appropriate tools and technologies required for its implementation.
+
+Project Structure
+
+EE12-Project/
+│
+├── README.md
+└── EE12/
+    └── Project files
+
+Installation
+
+To get a local copy of the project:
+
+git clone https://github.com/mfongodswill68-cmd/EE12-Project.git
+
+Navigate into the project directory:
+
+cd EE12-Project
+
+Usage
+
+Open the project files using the appropriate development environment and follow the project-specific instructions to run or interact with the application.
+
+Purpose
+
+This project is developed primarily for academic purposes as part of the requirements for GET 324. It demonstrates the ability to apply theoretical knowledge to practical project development.
+
+Author
+
+Godswill Mfon
+
+Acknowledgements
+
+- Department/Course requirements for GET 324
+- Course instructors and project supervisors
+- Resources and tools used during the development of the project
+
+License
+
+This project is intended for educational and academic purposes.
+
+23/EG/EE/045
+=======
 # Orange Freshness Detection Web App
 
 A Computer Vision and Deep Learning web application built to classify oranges as **Fresh** or **Rotten**, complete with pre-validation filters to ensure uploaded images are actual oranges. Developed as a mini project in fulfillment of **GET 324**.
@@ -462,5 +534,4 @@ This project is open-source and available under the [MIT License](https://www.go
 ## 🪪 Registration / Student Identifier
 
 **Registration Number:** `23/EG/EE/005`
-
 
