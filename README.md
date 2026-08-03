@@ -463,5 +463,5 @@ The **EE12 Project** is designed to demonstrate key engineering principles, prog
 
 ## 🪪 Registration / Student Identifier
 
-**Registration Number:** `23/EG/EE/005`
+**Registration Number:** `23/EG/EE/065
 
