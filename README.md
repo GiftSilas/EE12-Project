@@ -144,7 +144,14 @@ document — fill these in if you have the full contributor list.</em>
 
 <h2>Contributors' Comments</h2>
 
-<h3>23/EG/EE/035 &amp; 23/EG/EE/115</h3>
+<h3>23/EG/EE/035</h3>
+<p>
+The Citrus Quality Evaluation tool verifies uploaded oranges using MobileNetV2 for fruit identification
+and PCA-based shape analysis to screen out oblong objects, before a specialized network assesses
+whether the fruit is fresh or spoiled
+</p>
+
+<h3>23/EG/EE/115</h3>
 <p>
 The Citrus Quality Evaluation tool checks whether an uploaded orange is sound or spoiled, using
 MobileNetV2 to confirm the image shows a citrus fruit and PCA-based shape analysis to filter out
@@ -174,7 +181,8 @@ PCA-based elongation check to cut down on false positives from non-orange or non
 
 <h3>23/EG/EE/075</h3>
 <p>
-No individual comment was provided for this entry in the original document.
+The Citrus Quality Evaluation tool uses a multi-stage vision pipeline verifying image type, filtering
+out non-spherical shapes, and detecting spoil to automatically grade uploaded oranges
 </p>
 
 <hr>
