@@ -43,4 +43,4 @@ Orange Freshness Detection is a Streamlit-based web application that uses deep l
 
 ## Author
 
-**Registration Number:** 23/EG/EE/035
+**Registration Number:** 23/EG/EE/075
