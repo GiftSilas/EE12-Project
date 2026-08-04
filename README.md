@@ -119,7 +119,7 @@ upload an orange photo (.jpg, .jpeg, or .png) and view the freshness prediction
       <td>—</td>
     </tr>
     <tr>
-      <td>—</td>
+      <td>Chidiebere, Oliver Emmanuel</td>
       <td>23/EG/EE/015</td>
       <td>oliver-creator1</td>
     </tr>
