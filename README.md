@@ -143,6 +143,11 @@ upload an orange photo (.jpg, .jpeg, or .png) and view the freshness prediction
       <td>23/EG/EE/065</td>
       <td>—</td>
     </tr>
+    <tr>
+      <td>Akpanam, Destiny Ezekiel</td>
+      <td>23/EG/EE/095</td>
+      <td>akpanamdestiny2005</td>
+    </tr>
   </tbody>
 </table>
 <hr>
