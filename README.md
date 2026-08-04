@@ -104,6 +104,11 @@ upload an orange photo (.jpg, .jpeg, or .png) and view the freshness prediction
   </thead>
   <tbody>
     <tr>
+      <td>Mfonobong, Emmanuel Christabel</td>
+      <td>23/EG/EE/025</td>
+      <td>Queencrystal01</td>
+    </tr>
+    <tr>
       <td>—</td>
       <td>23/EG/EE/075</td>
       <td>—</td>
@@ -127,6 +132,11 @@ upload an orange photo (.jpg, .jpeg, or .png) and view the freshness prediction
       <td>Mfon, Godswill</td>
       <td>23/EG/EE/045</td>
       <td>mfongodswill68-cmd</td>
+    </tr>
+    <tr>
+      <td>Sema, Effiong Kelvin</td>
+      <td>23/EG/EE/105</td>
+      <td>kelzzz-gif</td>
     </tr>
     <tr>
       <td>—</td>
