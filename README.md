@@ -104,6 +104,11 @@ upload an orange photo (.jpg, .jpeg, or .png) and view the freshness prediction
   </thead>
   <tbody>
     <tr>
+      <td>Silas, Gift Aniekan</td>
+      <td>23/EG/EE/035</td>
+      <td>GiftAnisilas</td>
+    </tr>
+    <tr>
       <td>Mfonobong, Emmanuel Christabel</td>
       <td>23/EG/EE/025</td>
       <td>Queencrystal01</td>
@@ -112,11 +117,6 @@ upload an orange photo (.jpg, .jpeg, or .png) and view the freshness prediction
       <td>—</td>
       <td>23/EG/EE/075</td>
       <td>—</td>
-    </tr>
-    <tr>
-      <td>Silas, Gift Aniekan</td>
-      <td>23/EG/EE/035</td>
-      <td>GiftAnisilas</td>
     </tr>
     <tr>
       <td>—</td>
